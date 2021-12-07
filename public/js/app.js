@@ -5276,59 +5276,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      curricula: [],
       fields: [],
       curriculainfo: [],
-      isActive: true
+      activeItem: null
     };
   },
   methods: {
-    // API経由で全タスクを取得
-    getCurricula: function getCurricula() {
+    getFields: function getFields() {
       var _this = this;
 
-      axios.get('api/curricula').then(function (res) {
-        _this.curricula = res.data;
-        console.log(_this.curricula);
-      });
-    },
-    getFields: function getFields() {
-      var _this2 = this;
-
       axios.get('api/fields').then(function (res) {
-        _this2.fields = res.data;
-        console.log(_this2.fields);
+        _this.fields = res.data;
+        console.log(_this.fields);
       });
     },
     getCurriculaInfo: function getCurriculaInfo() {
-      var _this3 = this;
+      var _this2 = this;
 
       axios.get('api/curricula_info').then(function (res) {
-        _this3.curriculainfo = res.data;
-        console.log(_this3.curriculainfo);
+        _this2.curriculainfo = res.data;
+        console.log(_this2.curriculainfo);
       });
     },
-    TorF: function TorF(i) {
-      if (i == '0') {
-        return 'true';
+    onActive: function onActive(n) {
+      if (this.activeItem === n) {
+        this.activeItem = null;
       } else {
-        return 'false';
-      }
-    },
-    TfShow: function TfShow(i) {
-      if (i == '0') {
-        return 'show';
-      } else {
-        return false;
+        this.activeItem = n;
       }
     }
   },
   computed: {},
   mounted: function mounted() {
-    this.getCurricula();
     this.getFields();
     this.getCurriculaInfo();
   }
@@ -28379,67 +28364,93 @@ var render = function () {
                 staticClass: "accordion mb-5",
                 attrs: { id: ["accordion-" + index] },
               },
-              _vm._l(_vm.curricula.data, function (curriculum, index_c) {
+              _vm._l(_vm.curriculainfo, function (curriculum, index_c) {
                 return _c(
                   "div",
                   { key: index_c, staticClass: "accordion-item" },
                   [
-                    _c(
-                      "h3",
-                      {
-                        staticClass: "accordion-header",
-                        attrs: { id: ["heading-" + index_c] },
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "accordion-button",
-                            attrs: {
-                              type: "button",
-                              "data-bs-toggle": "collapse",
-                              "data-bs-target": ["#collapse-" + index_c],
-                              "aria-expanded": { true: _vm.isActive },
-                              "aria-controls": ["collapse-" + index_c],
-                            },
-                            on: {
-                              click: function ($event) {
-                                _vm.isActive = !_vm.isActive
+                    curriculum.f_id == field.id
+                      ? _c("div", [
+                          _c(
+                            "h3",
+                            {
+                              staticClass: "accordion-header",
+                              attrs: {
+                                id: ["heading-" + field.f_name + index_c],
                               },
                             },
-                          },
-                          [
-                            _vm._v(
-                              "\n                                " +
-                                _vm._s(curriculum.c_name) +
-                                "\n                            "
-                            ),
-                          ]
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "accordion-collapse collapse",
-                        class: { show: _vm.isActive },
-                        attrs: {
-                          id: ["#collapse-" + index_c],
-                          "aria-labelledby": ["heading-" + index_c],
-                          "data-bs-parent": ["accordion-" + index],
-                        },
-                      },
-                      [
-                        _c("div", { staticClass: "accordion-body" }, [
-                          _vm._v(
-                            "\n                                " +
-                              _vm._s(curriculum.c_content) +
-                              "\n                            "
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "accordion-button",
+                                  class: {
+                                    collapsed:
+                                      _vm.activeItem === field.f_name + index_c,
+                                  },
+                                  attrs: {
+                                    type: "button",
+                                    "data-bs-toggle": "collapse",
+                                    "data-bs-target": [
+                                      "#collapse-" + field.f_name + index_c,
+                                    ],
+                                    "aria-expanded": {
+                                      true:
+                                        _vm.activeItem ===
+                                        field.f_name + index_c,
+                                    },
+                                    "aria-controls": [
+                                      "collapse-" + field.f_name + index_c,
+                                    ],
+                                  },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.onActive(
+                                        field.f_name + index_c
+                                      )
+                                    },
+                                  },
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(curriculum.c_name) +
+                                      "\n                                "
+                                  ),
+                                ]
+                              ),
+                            ]
                           ),
-                        ]),
-                      ]
-                    ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "accordion-collapse collapse",
+                              class: {
+                                show: _vm.activeItem === field.f_name + index_c,
+                              },
+                              attrs: {
+                                id: ["#collapse-" + field.f_name + index_c],
+                                "aria-labelledby": [
+                                  "heading-" + field.f_name + index_c,
+                                ],
+                                "data-bs-parent": ["accordion-" + index],
+                              },
+                            },
+                            [
+                              _c("div", { staticClass: "accordion-body" }, [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(curriculum.c_content) +
+                                    "\n                                    " +
+                                    _vm._s(curriculum.f_id) +
+                                    "\n                                "
+                                ),
+                              ]),
+                            ]
+                          ),
+                        ])
+                      : _vm._e(),
                   ]
                 )
               }),

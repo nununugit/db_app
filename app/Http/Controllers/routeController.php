@@ -47,7 +47,7 @@ class routeController extends Controller
 
 
     public function curricula_info(){
-        $labo_info =  Curriculum::Join('teachers','curricula.t_id','=','teachers.id')->select('t_name','c_name','c_content')->get();
+        $labo_info =  Curriculum::Join('teachers','curricula.t_id','=','teachers.id')->select('t_name','c_name','c_content','f_id')->get();
         return $labo_info;
     }
 }

@@ -10,15 +10,18 @@
             <div v-for="(field, index) in fields.data" :key="index">
                 <h2 class="fw-bolder mb-3">{{field.f_name}}</h2>
                 <div class="accordion mb-5" v-bind:id="['accordion-'+index]">
-                    <div v-for="(curriculum, index_c) in curricula.data" :key="index_c" class="accordion-item">
-                        <h3 class="accordion-header" v-bind:id="['heading-'+index_c]">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" v-bind:data-bs-target="['#collapse-'+index_c]" v-bind:aria-expanded="{true: isActive}" v-bind:aria-controls="['collapse-'+index_c]" v-on:click="isActive = !isActive">
-                                {{curriculum.c_name}}
-                            </button>
-                        </h3>
-                        <div class="accordion-collapse collapse" v-bind:class="{show: isActive}" v-bind:id="['#collapse-'+index_c]" v-bind:aria-labelledby="['heading-'+index_c]" v-bind:data-bs-parent="['accordion-'+index]">
-                            <div class="accordion-body">
-                                {{ curriculum.c_content }}
+                    <div v-for="(curriculum, index_c) in curriculainfo" :key="index_c" class="accordion-item">
+                        <div v-if="curriculum.f_id == field.id">
+                            <h3 class="accordion-header" v-bind:id="['heading-'+field.f_name+index_c]">
+                                <button class="accordion-button" v-bind:class="{collapsed: activeItem === field.f_name+index_c}"  type="button" data-bs-toggle="collapse" v-bind:data-bs-target="['#collapse-'+field.f_name+index_c]" v-bind:aria-expanded="{true: activeItem === field.f_name+index_c}" v-bind:aria-controls="['collapse-'+field.f_name+index_c]" v-on:click="onActive(field.f_name+index_c)">
+                                    {{curriculum.c_name}}
+                                </button>
+                            </h3>
+                            <div class="accordion-collapse collapse" v-bind:class="{show: activeItem === field.f_name+index_c}" v-bind:id="['#collapse-'+field.f_name+index_c]" v-bind:aria-labelledby="['heading-'+field.f_name+index_c]" v-bind:data-bs-parent="['accordion-'+index]">
+                                <div class="accordion-body">
+                                    {{ curriculum.c_content }}
+                                    {{ curriculum.f_id }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -35,22 +38,12 @@
     export default {
         data: function () {
             return {
-                curricula: [],
                 fields: [],
                 curriculainfo:[],
-                isActive:true
+                activeItem: null
             }
         },
         methods: {
-            // API経由で全タスクを取得
-            getCurricula() {
-                axios.get('api/curricula')
-                    .then((res) => {
-                        this.curricula = res.data;
-                        console.log(this.curricula)
-                    });
-            },
-
             getFields() {
                 axios.get('api/fields')
                     .then((res) => {
@@ -66,20 +59,13 @@
                         console.log(this.curriculainfo)
                     });
             },
-            TorF(i) {
-                if(i == '0'){
-                    return 'true'
-                }else{
-                    return 'false'
-                }
-            },
-            TfShow(i) {
-                if(i == '0'){
-                    return 'show'
-                }else{
-                    return false
-                }
+            onActive(n) {
+            if(this.activeItem === n){
+            this.activeItem = null;
+            }else{
+            this.activeItem = n;
             }
+            },
 
 
             
@@ -88,11 +74,8 @@
             
         },
         mounted() {
-            this.getCurricula();
             this.getFields();
             this.getCurriculaInfo();
         },
-        
-        
     }
 </script>
