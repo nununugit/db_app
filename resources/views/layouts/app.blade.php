@@ -13,6 +13,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column h-100">
@@ -30,7 +31,7 @@
                             <li class="nav-item"><a class="nav-link" href="{{url('laboratories')}}">研究室一覧</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url('admissions')}}">受験生へ</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url('students')}}">在校生へ</a></li>
-                            <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{url('faq')}}">FAQ</a></li>
                         </ul>
                     </div>
                 </div>

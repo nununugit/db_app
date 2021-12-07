@@ -9,6 +9,7 @@
                         <div class="col-lg-6">
                             <h2 class="fw-bolder">{{teacher.t_name}}</h2>
                             <p class="lead fw-normal text-muted mb-0">{{teacher.t_content}}</p>
+                            <a class="lead fw-normal text-muted mb-0">{{teacher.t_name}}研究室ホームページ</a>
                         </div>
                     </div>
                 </div>
@@ -21,6 +22,8 @@
                         <div class="col-lg-6">
                             <h2 class="fw-bolder">{{teacher.t_name}}</h2>
                             <p class="lead fw-normal text-muted mb-0">{{teacher.t_content}}</p>
+                            <a class="lead fw-normal text-muted mb-0">{{teacher.t_name}}研究室ホームページ</a>
+
                         </div>
                     </div>
                 </div>

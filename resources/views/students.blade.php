@@ -8,15 +8,15 @@
                 <div class="d-flex align-items-center mt-lg-5 mb-4">
                     <img class="img-fluid rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
                     <div class="ms-3">
-                        <div class="fw-bold">進路担当の先生1</div>
-                        <div class="text-muted">メールアドレス</div>
+                        <div class="fw-bold">就職担当:横井健</div>
+                        <div class="text-muted">yokoi&#064;metro-cit.ac.jp</div>
                     </div>
                 </div>
                 <div class="d-flex align-items-center mt-lg-5 mb-4">
                     <img class="img-fluid rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
                     <div class="ms-3">
-                        <div class="fw-bold">進路担当の先生2</div>
-                        <div class="text-muted">メールアドレス</div>
+                        <div class="fw-bold">教育委員:浅川澄人</div>
+                        <div class="text-muted">asakawa&#064;metro-cit.ac.jp</div>
                     </div>
                 </div>
             </div>
@@ -35,24 +35,34 @@
                     <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
                     <!-- Post content-->
                     <section class="mb-5">
-                        <p class="fs-5 mb-4">電話がスマートフォンへ、時計がスマートウォッチへ変わったように、 様々な「もの」がインターネットにつながりスマート化され進化しています。</p>
-                        <p class="fs-5 mb-4">例えば、自動運転について考えてみましょう、車などのモビリティに搭載されたカメラで撮影した映像データがAIへ送られます。AIはその映像データと大量の蓄積データを照合し、最適なモータの動かし方を考え, スマートな運転を実現してくれます。
-                            　次世代のものづくりは、「これまでの技術」×「AI」にあり、個々のニーズに合ったきめ細かなサービスが実現され、人間中心の新しい未来社会が来るでしょう。</p>
-                        <p class="fs-5 mb-4">AIスマート工学コースでは、AIを活用し、スマート化技術で「もの」をつくる技術者を育成します。そのために、機械, 電子工学をベースにデジタルで「もの」を「かたち」にする技術、「もの」同士を「つなげる」技術、「もの」を「動かす」技術、「AI」を「活用」する技術を実際に体験しながら学びます。</p>
+                        <b class="fs-4 mb-4">
+                            アカデミックライセンス契約に関する注意
+                        </b>
+                        <p class="fs-5 mb-4">
+                            アカデミックライセンス契約によって在学生向けに各種アプリケーションが利用できます。本校ポータルサイトを確認した上で積極的に利用してください。 
+                        </p>
+                        
+                        <b class="fs-4 mb-4">
+                            本校専攻科を志望する学生に向けた注意
+                        </b>
+                        <p class="fs-5 mb-4">
+                            専攻科の卒業要件に該当する授業が本科の選択授業にあります。 これを取得していない場合、 専攻科を卒業することができません。 
+                            専攻科へ進級する予定の学生はこれを本科もしくは専攻科在学中に履修する必要があります。 履修すべき科目については専攻科のコースごとに異なります。 カリキュラムを参照の上、 十分に注意してください。 
+                        </p>
+                        
+                        <b class="fs-4 mb-4">
+                            資格等の学外単位に関する注意
+                        </b>
+                        <p class="fs-5 mb-4">
+                            当コース学生用にクラス指定されている授業以外に、 各種資格が単位として認められる場合があります。 
+                            学外単位申請書類を記入し、 教務学生係に提出すること。
+                        </p>
                         <p>
-                            <a href="#">博士前期課程（修士課程）入学試験問題例題集2021</a>
+                            <a href="#">公務支援システム</a>
                         </p>                        
                         
                         <p>
-                            <a href="#">博士前期課程（修士課程）入学試験問題例題集2020</a>
-                        </p>                        
-                        
-                        <p>
-                            <a href="#">博士前期課程（修士課程）入学試験問題例題集2019</a>
-                        </p>                        
-                        
-                        <p>
-                            <a href="#">博士前期課程（修士課程）入学試験問題例題集2018</a>
+                            <a href="#">その他のリンク</a>
                         </p>                        
                     </section>
                 </article>

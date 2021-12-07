@@ -23,3 +23,4 @@ Route::get('/curricula', 'App\Http\Controllers\routeController@curricula')->name
 Route::get('/laboratories', 'App\Http\Controllers\routeController@laboratories')->name('laboratories');
 Route::get('/admissions', 'App\Http\Controllers\routeController@admissions')->name('admissions');
 Route::get('/students', 'App\Http\Controllers\routeController@students')->name('students');
+Route::get('/faq', 'App\Http\Controllers\routeController@faq')->name('faq');

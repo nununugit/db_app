@@ -40,6 +40,11 @@ class routeController extends Controller
         return view('students');
     }
 
+    public function faq()
+    {
+        return view('faq');
+    }
+
     public function labo_info(){
         $labo_info =  Laboratory::Join('teachers','laboratories.t_id','=','teachers.id')->select('t_name','l_content')->get();
         return $labo_info;

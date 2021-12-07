@@ -24,5 +24,15 @@ class FieldSeeder extends Seeder
         \DB::table('fields')->insert([
             'f_name' => '電子制御分野'
         ]);
+    
+
+        \DB::table('fields')->insert([
+            'f_name' => '機械工学分野'
+        ]);
+    
+
+        \DB::table('fields')->insert([
+            'f_name' => '共通分野'
+        ]);
     }
 }

@@ -5277,8 +5277,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5292,16 +5290,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('api/fields').then(function (res) {
-        _this.fields = res.data;
-        console.log(_this.fields);
+        _this.fields = res.data; // console.log(this.fields)
       });
     },
     getCurriculaInfo: function getCurriculaInfo() {
       var _this2 = this;
 
       axios.get('api/curricula_info').then(function (res) {
-        _this2.curriculainfo = res.data;
-        console.log(_this2.curriculainfo);
+        _this2.curriculainfo = res.data; // console.log(this.curriculainfo)
       });
     },
     onActive: function onActive(n) {
@@ -5310,9 +5306,18 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         this.activeItem = n;
       }
+    },
+    sortField: function sortField(cinfo, fid) {
+      var sf = [];
+      cinfo.forEach(function (element) {
+        if (element.f_id == fid) {
+          sf.push(element);
+          console.log(sf);
+        }
+      });
+      return sf;
     }
   },
-  computed: {},
   mounted: function mounted() {
     this.getFields();
     this.getCurriculaInfo();
@@ -5464,6 +5469,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
 //
 //
 //
@@ -28345,122 +28353,121 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container px-5 my-5" }, [
+  return _c("div", { staticClass: "container px-10 my-5" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "row gx-5" }, [
-      _c(
-        "div",
-        {},
-        _vm._l(_vm.fields.data, function (field, index) {
-          return _c("div", { key: index }, [
-            _c("h2", { staticClass: "fw-bolder mb-3" }, [
-              _vm._v(_vm._s(field.f_name)),
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "accordion mb-5",
-                attrs: { id: ["accordion-" + index] },
-              },
-              _vm._l(_vm.curriculainfo, function (curriculum, index_c) {
-                return _c(
-                  "div",
-                  { key: index_c, staticClass: "accordion-item" },
-                  [
-                    curriculum.f_id == field.id
-                      ? _c("div", [
+    _c(
+      "div",
+      { staticClass: "row gx-5" },
+      _vm._l(_vm.fields.data, function (field, index) {
+        return _c("div", { key: index }, [
+          _c("h2", { staticClass: "fw-bolder mb-3" }, [
+            _vm._v(_vm._s(field.f_name)),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "accordion mb-5",
+              attrs: { id: ["accordion-" + index] },
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "accordion-item" },
+                _vm._l(
+                  _vm.sortField(_vm.curriculainfo, field.id),
+                  function (curriculum, index_c) {
+                    return _c("div", { key: index_c }, [
+                      _c(
+                        "h3",
+                        {
+                          staticClass: "accordion-header",
+                          attrs: { id: ["heading-" + field.f_name + index_c] },
+                        },
+                        [
                           _c(
-                            "h3",
+                            "button",
                             {
-                              staticClass: "accordion-header",
+                              staticClass: "accordion-button",
+                              class: {
+                                collapsed:
+                                  _vm.activeItem === field.f_name + index_c,
+                              },
                               attrs: {
-                                id: ["heading-" + field.f_name + index_c],
+                                type: "button",
+                                "data-bs-toggle": "collapse",
+                                "data-bs-target": [
+                                  "#collapse-" + field.f_name + index_c,
+                                ],
+                                "aria-expanded": {
+                                  true:
+                                    _vm.activeItem === field.f_name + index_c,
+                                },
+                                "aria-controls": [
+                                  "collapse-" + field.f_name + index_c,
+                                ],
+                              },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.onActive(field.f_name + index_c)
+                                },
                               },
                             },
                             [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "accordion-button",
-                                  class: {
-                                    collapsed:
-                                      _vm.activeItem === field.f_name + index_c,
-                                  },
-                                  attrs: {
-                                    type: "button",
-                                    "data-bs-toggle": "collapse",
-                                    "data-bs-target": [
-                                      "#collapse-" + field.f_name + index_c,
-                                    ],
-                                    "aria-expanded": {
-                                      true:
-                                        _vm.activeItem ===
-                                        field.f_name + index_c,
-                                    },
-                                    "aria-controls": [
-                                      "collapse-" + field.f_name + index_c,
-                                    ],
-                                  },
-                                  on: {
-                                    click: function ($event) {
-                                      return _vm.onActive(
-                                        field.f_name + index_c
-                                      )
-                                    },
-                                  },
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                    " +
-                                      _vm._s(curriculum.c_name) +
-                                      "\n                                "
-                                  ),
-                                ]
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(curriculum.c_name) +
+                                  "\n                                "
                               ),
                             ]
                           ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass: "accordion-collapse collapse",
-                              class: {
-                                show: _vm.activeItem === field.f_name + index_c,
-                              },
-                              attrs: {
-                                id: ["#collapse-" + field.f_name + index_c],
-                                "aria-labelledby": [
-                                  "heading-" + field.f_name + index_c,
-                                ],
-                                "data-bs-parent": ["accordion-" + index],
-                              },
-                            },
-                            [
-                              _c("div", { staticClass: "accordion-body" }, [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(curriculum.c_content) +
-                                    "\n                                    " +
-                                    _vm._s(curriculum.f_id) +
-                                    "\n                                "
-                                ),
-                              ]),
-                            ]
-                          ),
-                        ])
-                      : _vm._e(),
-                  ]
-                )
-              }),
-              0
-            ),
-          ])
-        }),
-        0
-      ),
-    ]),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "accordion-collapse collapse",
+                          class: {
+                            show: _vm.activeItem === field.f_name + index_c,
+                          },
+                          attrs: {
+                            id: ["#collapse-" + field.f_name + index_c],
+                            "aria-labelledby": [
+                              "heading-" + field.f_name + index_c,
+                            ],
+                            "data-bs-parent": ["accordion-" + index],
+                          },
+                        },
+                        [
+                          _c("div", { staticClass: "accordion-body" }, [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(curriculum.c_content) +
+                                "\n                                    "
+                            ),
+                            _c("div", [
+                              _vm._v(
+                                "\n                                    担当教員:" +
+                                  _vm._s(curriculum.t_name) +
+                                  "\n                                    "
+                              ),
+                            ]),
+                          ]),
+                        ]
+                      ),
+                    ])
+                  }
+                ),
+                0
+              ),
+            ]
+          ),
+        ])
+      }),
+      0
+    ),
   ])
 }
 var staticRenderFns = [
@@ -28673,6 +28680,12 @@ var render = function () {
                         { staticClass: "lead fw-normal text-muted mb-0" },
                         [_vm._v(_vm._s(teacher.t_content))]
                       ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        { staticClass: "lead fw-normal text-muted mb-0" },
+                        [_vm._v(_vm._s(teacher.t_name) + "研究室ホームページ")]
+                      ),
                     ]),
                   ]),
                 ]),
@@ -28693,6 +28706,10 @@ var render = function () {
                     _vm._v(" "),
                     _c("p", { staticClass: "lead fw-normal text-muted mb-0" }, [
                       _vm._v(_vm._s(teacher.t_content)),
+                    ]),
+                    _vm._v(" "),
+                    _c("a", { staticClass: "lead fw-normal text-muted mb-0" }, [
+                      _vm._v(_vm._s(teacher.t_name) + "研究室ホームページ"),
                     ]),
                   ]),
                 ]),
