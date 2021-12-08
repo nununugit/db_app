@@ -35,6 +35,7 @@ class CurriculumController extends Controller
         $curricula->c_name = $request->c_name;
         $curricula->c_content = $request->c_content;
         $curricula->t_id = $request->t_id;
+        $curricula->f_id = $request->f_id;
         $curricula->save();
 
         return redirect('/api/curricula');
@@ -69,6 +70,7 @@ class CurriculumController extends Controller
         $curricula->c_name = $request->c_name;
         $curricula->c_content = $request->c_content;
         $curricula->t_id = $request->t_id;
+        $curricula->f_id = $request->f_id;
         $curricula->save();
         
         return response()->json([

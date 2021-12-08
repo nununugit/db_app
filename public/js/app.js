@@ -5277,6 +5277,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -28361,10 +28367,6 @@ var render = function () {
       { staticClass: "row gx-5" },
       _vm._l(_vm.fields.data, function (field, index) {
         return _c("div", { key: index }, [
-          _c("h2", { staticClass: "fw-bolder mb-3" }, [
-            _vm._v(_vm._s(field.f_name)),
-          ]),
-          _vm._v(" "),
           _c(
             "div",
             {
@@ -28372,13 +28374,17 @@ var render = function () {
               attrs: { id: ["accordion-" + index] },
             },
             [
-              _c(
-                "div",
-                { staticClass: "accordion-item" },
-                _vm._l(
-                  _vm.sortField(_vm.curriculainfo, field.id),
-                  function (curriculum, index_c) {
-                    return _c("div", { key: index_c }, [
+              _c("h2", { staticClass: "fw-bolder mb-3" }, [
+                _vm._v(_vm._s(field.f_name)),
+              ]),
+              _vm._v(" "),
+              _vm._l(
+                _vm.sortField(_vm.curriculainfo, field.id),
+                function (curriculum, index_c) {
+                  return _c(
+                    "div",
+                    { key: index_c, staticClass: "accordion-item" },
+                    [
                       _c(
                         "h3",
                         {
@@ -28392,7 +28398,7 @@ var render = function () {
                               staticClass: "accordion-button",
                               class: {
                                 collapsed:
-                                  _vm.activeItem === field.f_name + index_c,
+                                  _vm.activeItem !== field.f_name + index_c,
                               },
                               attrs: {
                                 type: "button",
@@ -28416,9 +28422,9 @@ var render = function () {
                             },
                             [
                               _vm._v(
-                                "\n                                    " +
+                                "\n                            " +
                                   _vm._s(curriculum.c_name) +
-                                  "\n                                "
+                                  "\n                        "
                               ),
                             ]
                           ),
@@ -28443,26 +28449,26 @@ var render = function () {
                         [
                           _c("div", { staticClass: "accordion-body" }, [
                             _vm._v(
-                              "\n                                    " +
+                              "\n                            " +
                                 _vm._s(curriculum.c_content) +
-                                "\n                                    "
+                                "\n                            "
                             ),
                             _c("div", [
                               _vm._v(
-                                "\n                                    担当教員:" +
+                                "\n                            担当教員:" +
                                   _vm._s(curriculum.t_name) +
-                                  "\n                                    "
+                                  "\n                        "
                               ),
                             ]),
                           ]),
                         ]
                       ),
-                    ])
-                  }
-                ),
-                0
+                    ]
+                  )
+                }
               ),
-            ]
+            ],
+            2
           ),
         ])
       }),

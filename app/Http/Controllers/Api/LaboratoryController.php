@@ -32,7 +32,6 @@ class LaboratoryController extends Controller
     public function store(Request $request)
     {
         $laboratories = new Laboratory();
-        $laboratories->c_name = $request->c_name;
         $laboratories->l_content = $request->l_content;
         $laboratories->t_id = $request->t_id;
         $laboratories->f_id = $request->f_id;
@@ -67,10 +66,10 @@ class LaboratoryController extends Controller
     {
         
         $laboratories = Laboratory::find($id);
-        $laboratories->c_name = $request->c_name;
         $laboratories->l_content = $request->l_content;
         $laboratories->t_id = $request->t_id;
         $laboratories->f_id = $request->f_id;
+        $laboratories->delete_flag = 0;
         $laboratories->save();
 
         return response()->json([

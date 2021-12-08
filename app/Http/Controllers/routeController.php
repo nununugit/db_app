@@ -46,13 +46,40 @@ class routeController extends Controller
     }
 
     public function labo_info(){
-        $labo_info =  Laboratory::Join('teachers','laboratories.t_id','=','teachers.id')->select('t_name','l_content')->get();
+        $labo_info =  Laboratory::Join('teachers','laboratories.t_id','=','teachers.id')
+        ->where('teachers.delete_flag','=','0')
+        ->where('laboratories.delete_flag','=','0')
+        ->select('t_name','l_content')->get();
         return $labo_info;
     }
 
-
     public function curricula_info(){
-        $labo_info =  Curriculum::Join('teachers','curricula.t_id','=','teachers.id')->select('t_name','c_name','c_content','f_id')->get();
+        $labo_info =  Curriculum::Join('teachers','curricula.t_id','=','teachers.id')
+        ->where('teachers.delete_flag','=','0')
+        ->where('curricula.delete_flag','=','0')
+        //あとで加筆削除されたやつは出さない
+        ->select('t_name','c_name','c_content','f_id')->get();
         return $labo_info;
+    }
+
+    public function apitest_c()
+    {
+        return view('apitest.apitest_c');
+    }
+
+    public function apitest_t()
+    {
+        return view('apitest.apitest_t');
+    }
+
+    public function apitest_l()
+    {
+        return view('apitest.apitest_l');
+    }
+
+
+    public function apitest_f()
+    {
+        return view('apitest.apitest_f');
     }
 }
