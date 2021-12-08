@@ -1,3 +1,14 @@
 .bg-custom {
     background-color: #009CAE;
 }
+
+body,
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+}

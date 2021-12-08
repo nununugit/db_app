@@ -32,13 +32,14 @@
                             <li class="nav-item"><a class="nav-link" href="{{url('admissions')}}">受験生へ</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url('students')}}">在校生へ</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url('faq')}}">FAQ</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{url('news')}}">NEWS</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
             @yield('content')
         <!-- Footer-->
-            <footer class="bg-custom py-4 mt-auto">
+            <footer class="bg-custom py-4 mt-auto footer">
                 <div class="container px-5">
                     <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                         <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Arai Asuma 2021</div></div>

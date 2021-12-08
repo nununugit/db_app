@@ -7,6 +7,7 @@ use App\Models\Curriculum;
 use App\Models\Field;
 use App\Models\Laboratory;
 use App\Models\Teacher;
+use App\Models\News;
 
 class routeController extends Controller
 {
@@ -45,6 +46,17 @@ class routeController extends Controller
         return view('faq');
     }
 
+    public function news()
+    {
+        $newses = News::orderBy('created_at', 'desc')->where('delete_flag','=','0')->get();
+        return view('news',['newses'=>$newses]);
+    }
+
+    public function news_detail($news_id)
+    {
+        return view('/news/'.$news_id);
+    }
+
     public function labo_info(){
         $labo_info =  Laboratory::Join('teachers','laboratories.t_id','=','teachers.id')
         ->where('teachers.delete_flag','=','0')
@@ -81,5 +93,16 @@ class routeController extends Controller
     public function apitest_f()
     {
         return view('apitest.apitest_f');
+    }
+
+
+    public function apitest_fq()
+    {
+        return view('apitest.apitest_fq');
+    }
+
+    public function apitest_news()
+    {
+        return view('apitest.apitest_news');
     }
 }

@@ -23,6 +23,8 @@ Route::group(['middleware' => ['api']], function(){
     Route::resource('laboratories', 'App\Http\Controllers\Api\LaboratoryController');
     Route::resource('teachers', 'App\Http\Controllers\Api\TeacherController');
     Route::resource('fields', 'App\Http\Controllers\Api\FieldController');
+    Route::resource('faqs', 'App\Http\Controllers\Api\FaqController');
+    Route::resource('newses', 'App\Http\Controllers\Api\NewsController');
     route::get('labo_info','App\Http\Controllers\routeController@labo_info');
     route::get('curricula_info','App\Http\Controllers\routeController@curricula_info');
 });

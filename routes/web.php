@@ -24,9 +24,13 @@ Route::get('/laboratories', 'App\Http\Controllers\routeController@laboratories')
 Route::get('/admissions', 'App\Http\Controllers\routeController@admissions')->name('admissions');
 Route::get('/students', 'App\Http\Controllers\routeController@students')->name('students');
 Route::get('/faq', 'App\Http\Controllers\routeController@faq')->name('faq');
+Route::get('/news', 'App\Http\Controllers\routeController@news')->name('news');
 
+Route::get('/news/{news_id}', 'App\Http\Controllers\routeController@news_detail')->name('news_detail');
 
 Route::get('/apitest/password_setting/iremasuyo/carricula', 'App\Http\Controllers\routeController@apitest_c');
 Route::get('/apitest/password_setting/iremasuyo/teachers', 'App\Http\Controllers\routeController@apitest_t');
 Route::get('/apitest/password_setting/iremasuyo/laboratories', 'App\Http\Controllers\routeController@apitest_l');
 Route::get('/apitest/password_setting/iremasuyo/fields', 'App\Http\Controllers\routeController@apitest_f');
+Route::get('/apitest/password_setting/iremasuyo/faqs', 'App\Http\Controllers\routeController@apitest_fq');
+Route::get('/apitest/password_setting/iremasuyo/newses', 'App\Http\Controllers\routeController@apitest_news');
